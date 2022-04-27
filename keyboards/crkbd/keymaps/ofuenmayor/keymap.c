@@ -1,6 +1,6 @@
 /*
-Copyright 2019 @foostan
-Copyright 2020 Drashna Jaelre <@drashna>
+Copyright 2022 @ofuenmayor92
+Copyright 2022  Jaelre <@drashna>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@ LALT_T(KC_ESC), KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                       
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LGUI, KC_QUOT,  KC_Q,    KC_J,    KC_K,    KC_X,                         KC_B,    KC_M,    KC_W,    KC_V,   KC_Z,   KC_BSLS,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                    MT(1,KC_GRV),   LGUI_T(KC_ESC),  LSFT_T(KC_ENT),     KC_SPC,   MT(2,KC_ENT), KC_RCTL
+                    LT(1,KC_GRV),   LGUI_T(KC_ESC),  LSFT_T(KC_ENT),     KC_SPC,   LT(2,KC_ENT), KC_RCTL
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -51,7 +51,7 @@ LALT_T(KC_ESC), KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                       
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_RALT, XXXXXXX, XXXXXXX, XXXXXXX, KC_HASH, KC_COLN,                      KC_AT,  KC_PIPE, KC_PERC,  XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT, KC_LCTL, XXXXXXX, XXXXXXX, KC_TILD, KC_CICR,                      KC_UNDS, KC_LT, KC_GT, XXXXXXX, XXXXXXX, XXXXXXX,
+      KC_LSFT, KC_LCTL, XXXXXXX, XXXXXXX, KC_TILD, KC_CIRC,                      KC_UNDS, KC_LT, KC_GT, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LGUI,   MO(3),  KC_SPC,     KC_ENT, _______, KC_RCTL
                                       //`--------------------------'  `--------------------------'
@@ -63,7 +63,7 @@ LALT_T(KC_ESC), KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                       
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, KC_LSFT, KC_LALT, KC_LGUI, KC_MPRV,                      KC_MNXT, KC_LEFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, KC_UP, KC_DOWN, KC_VOLDOWN,                      KC_VOLUP, KC_MPLY, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, KC_UP, KC_DOWN, KC_VOLD,                      KC_VOLU, KC_MPLY, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LGUI,   _______,  KC_SPC,     KC_ENT, _______, KC_RCTL
                                       //`--------------------------'  `--------------------------'
