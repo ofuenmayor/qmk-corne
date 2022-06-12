@@ -18,6 +18,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 #include <stdio.h>
+#include "music-bars.c"
+#define ANIM_INVERT false
+#define ANIM_RENDER_WPM true
+#define FAST_TYPE_WPM 45
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split_3x6_3(
@@ -28,16 +33,16 @@ LALT_T(KC_ESC), KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                       
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LGUI, KC_QUOT,  KC_Q,    KC_J,    KC_K,    KC_X,                         KC_B,    KC_M,    KC_W,    KC_V,   KC_Z,   KC_SLSH,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                    LT(1,KC_GRV),   LGUI_T(KC_ESC),  LSFT_T(KC_ENT),     KC_SPC,   LT(2,KC_ENT), KC_RCTL
+                    LT(1,KC_GRV),   LGUI_T(KC_ESC),  LSFT_T(KC_ENT),     LSFT_T(KC_SPC),   LT(2,KC_SPC), KC_RCTL
                                       //`--------------------------'  `--------------------------'
 
   ),
 
   [1] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, KC_UP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,						  KC_7,    KC_8,    KC_9,   KC_PLUS, KC_PSLS, XXXXXXX,
+      XXXXXXX, XXXXXXX, KC_UP, XXXXXXX, XXXXXXX, XXXXXXX,						  KC_7,    KC_8,    KC_9,   KC_PLUS, KC_PSLS, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LEFT, KC_DOWN, KC_RIGHT,XXXXXXX, XXXXXXX, XXXXXXX,                       KC_4,    KC_5,    KC_6,   KC_PMNS, XXXXXXX, XXXXXXX,
+      XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, XXXXXXX,                       KC_4,    KC_5,    KC_6,   KC_PMNS, KC_DOT, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, KC_LCTL, KC_LALT,KC_LGUI, XXXXXXX, XXXXXXX,						  KC_1,    KC_2,    KC_3,   KC_PAST, XXXXXXX, XXXXXXX, 
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -59,9 +64,9 @@ LALT_T(KC_ESC), KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                       
 
   [3] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-	  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_CALC,                      KC_MUTE, XXXXXXX, XXXXXXX, XXXXXXX, KC_RIGHT, XXXXXXX,
+	  KC_F1,	KC_F2,	  KC_F3,   KC_F4,   KC_F5,   KC_F6,                      KC_F7,	   KC_F8,	KC_F9,   KC_F10, KC_F11,  KC_F12,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, KC_LSFT, KC_LALT, KC_LGUI, KC_MPRV,                      KC_MNXT, KC_LEFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, KC_LSFT, KC_LALT, KC_LGUI, KC_MPRV,                      KC_MNXT, KC_LEFT, KC_MUTE, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, KC_UP, KC_DOWN, KC_VOLD,                      KC_VOLU, KC_MPLY, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -97,27 +102,27 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 #define L_ADJUST 16
 
 void oled_render_layer_state(void) {
-    oled_write_P(PSTR("Layer: "), false);
-    switch (layer_state) {
-        case L_DVORAK_PRIME:
-            oled_write_ln_P(PSTR("Dvorak"), false);
-            break;
-        case L_NUMPAD:
-            oled_write_ln_P(PSTR("Numpad"), false);
-            break;
-        case L_SYMBOLS:
-            oled_write_ln_P(PSTR("Symbols"), false);
-            break;
-		case L_NAVIGATION:
-            oled_write_ln_P(PSTR("Navigation"), false);
-            break;
-        case L_ADJUST:
-        case L_ADJUST|L_NUMPAD:
-        case L_ADJUST|L_SYMBOLS:
-        case L_ADJUST|L_NUMPAD|L_SYMBOLS:
-            oled_write_ln_P(PSTR("Adjust"), false);
-            break;
-    }
+    /** oled_write_P(PSTR("Layer: "), false); */
+    /** switch (layer_state) { */
+    /**     case L_DVORAK_PRIME: */
+    /**         oled_write_ln_P(PSTR("Dvorak"), false); */
+    /**         break; */
+    /**     case L_NUMPAD: */
+    /**         oled_write_ln_P(PSTR("Numpad"), false); */
+    /**         break; */
+    /**     case L_SYMBOLS: */
+    /**         oled_write_ln_P(PSTR("Symbols"), false); */
+    /**         break; */
+	/**     case L_NAVIGATION: */
+    /**         oled_write_ln_P(PSTR("Navigation"), false); */
+    /**         break; */
+    /**     case L_ADJUST: */
+    /**     case L_ADJUST|L_NUMPAD: */
+    /**     case L_ADJUST|L_SYMBOLS: */
+    /**     case L_ADJUST|L_NUMPAD|L_SYMBOLS: */
+    /**         oled_write_ln_P(PSTR("Adjust"), false); */
+    /**         break; */
+    /** } */
 }
 
 
@@ -146,7 +151,7 @@ void set_keylog(uint16_t keycode, keyrecord_t *record) {
 }
 
 void oled_render_keylog(void) {
-    oled_write(keylog_str, false);
+    /** oled_write(keylog_str, false); */
 }
 
 void render_bootmagic_status(bool status) {
@@ -175,8 +180,9 @@ void oled_render_logo(void) {
 
 bool oled_task_user(void) {
     if (is_keyboard_master()) {
-        oled_render_layer_state();
-        oled_render_keylog();
+		oled_render_anim();
+        /** oled_render_layer_state(); */
+        /** oled_render_keylog(); */
     } else {
         oled_render_logo();
     }
@@ -185,8 +191,10 @@ bool oled_task_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
-    set_keylog(keycode, record);
+    /** set_keylog(keycode, record); */
   }
   return true;
 }
+
+
 #endif // OLED_ENABLE
