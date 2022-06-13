@@ -44,7 +44,7 @@ LALT_T(KC_ESC), KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                       
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, XXXXXXX,                       KC_4,    KC_5,    KC_6,   KC_PMNS, KC_DOT, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_LCTL, KC_LALT,KC_LGUI, XXXXXXX, XXXXXXX,						  KC_1,    KC_2,    KC_3,   KC_PAST, XXXXXXX, XXXXXXX, 
+      XXXXXXX, KC_LCTL, KC_LALT,KC_LGUI, KC_LSFT, XXXXXXX,						  KC_1,    KC_2,    KC_3,   KC_PAST, XXXXXXX, XXXXXXX, 
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                            _______, KC_LGUI, KC_SPC,     KC_ENT,   MO(4), KC_0
                                       //`--------------------------'  `--------------------------'
@@ -54,9 +54,9 @@ LALT_T(KC_ESC), KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                       
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       KC_DLR, KC_PLUS, KC_LBRC, KC_LCBR,  KC_LPRN, KC_AMPR,                     KC_PEQL, KC_RPRN, KC_RCBR, KC_RBRC, KC_PAST, KC_EXLM,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_RALT, XXXXXXX, XXXXXXX, XXXXXXX, KC_HASH, KC_COLN,                      KC_AT,  KC_PIPE, KC_PERC,  XXXXXXX, XXXXXXX, XXXXXXX,
+      KC_RALT, XXXXXXX, XXXXXXX, KC_BSLS, KC_HASH, KC_COLN,                      KC_AT,  KC_PIPE, KC_PERC,  XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT, KC_LCTL, XXXXXXX, XXXXXXX, KC_TILD, KC_CIRC,                      KC_UNDS, KC_LT, KC_GT, XXXXXXX, XXXXXXX, XXXXXXX,
+      KC_LSFT, KC_LCTL, KC_LSFT, XXXXXXX, KC_TILD, KC_CIRC,                      KC_UNDS, KC_LT, KC_GT, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LGUI,   MO(3),  KC_SPC,     KC_ENT, _______, KC_RCTL
                                       //`--------------------------'  `--------------------------'
